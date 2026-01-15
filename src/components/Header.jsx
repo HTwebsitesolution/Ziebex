@@ -1,14 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import logo from '../assets/logo.png'
 
 const Header = ({ scrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
+
+  // Track active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'services', 'courses', 'contact']
+      const scrollPosition = window.scrollY + 200 // Offset for better detection
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i])
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i])
+          break
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    handleScroll() // Check on mount
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About Us' },
-    { href: '#services', label: 'Services' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#home', label: 'Home', section: 'home' },
+    { href: '#about', label: 'About Us', section: 'about' },
+    { href: '#services', label: 'Services', section: 'services' },
+    { href: '#courses', label: 'Courses', section: 'courses' },
+    { href: '#contact', label: 'Contact', section: 'contact' },
   ]
 
   return (
@@ -22,23 +44,35 @@ const Header = ({ scrolled }) => {
           />
         </a>
         
-        <ul className="hidden md:flex list-none gap-10 items-center">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-dark font-medium transition-colors relative hover:text-primary group"
-              >
-                {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-              </a>
-            </li>
-          ))}
+        <ul className="hidden md:flex list-none gap-8 items-center">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.section
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`font-semibold text-base transition-all relative group py-2 px-1 ${
+                    isActive 
+                      ? 'text-primary underline decoration-2 underline-offset-4' 
+                      : 'text-dark hover:text-primary'
+                  }`}
+                >
+                  <span className="relative z-10">{link.label}</span>
+                  {!isActive && (
+                    <>
+                      <span className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                      <span className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-0"></span>
+                    </>
+                  )}
+                </a>
+              </li>
+            )
+          })}
         </ul>
         
         <a
           href="#contact"
-          className="hidden md:block bg-gradient-to-br from-primary to-secondary text-white px-8 py-3 rounded-full font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40"
+          className="hidden md:block bg-gradient-to-br from-primary to-secondary text-white px-8 py-3 rounded-full font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105"
         >
           Get Started
         </a>
@@ -55,23 +89,30 @@ const Header = ({ scrolled }) => {
       </nav>
       
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t">
-          <ul className="flex flex-col p-5 gap-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-dark font-medium block py-2 hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            <li>
+        <div className="md:hidden bg-white border-t shadow-lg">
+          <ul className="flex flex-col p-5 gap-2">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.section
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={`font-semibold block py-3 px-4 rounded-lg transition-all ${
+                      isActive
+                        ? 'text-primary bg-primary/10 underline decoration-2'
+                        : 'text-dark hover:bg-primary/10 hover:text-primary'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
+            <li className="pt-2">
               <a
                 href="#contact"
-                className="block bg-gradient-to-br from-primary to-secondary text-white px-8 py-3 rounded-full font-semibold text-center"
+                className="block bg-gradient-to-br from-primary to-secondary text-white px-8 py-3 rounded-full font-semibold text-center shadow-lg hover:shadow-xl transition-all"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Get Started
