@@ -19,9 +19,9 @@ const Footer = () => {
       { label: 'Web Solutions', href: '#services' },
     ],
     legal: [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms & Conditions', href: '#' },
-      { label: 'Cookie Policy', href: '#' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms & Conditions', href: '/terms' },
+      { label: 'Cookie Policy', href: '/cookie-policy' },
     ],
   }
 
@@ -98,12 +98,12 @@ const Footer = () => {
             <ul className="list-none space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-white/70 hover:text-accent transition-all inline-block hover:translate-x-1"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

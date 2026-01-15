@@ -278,9 +278,9 @@ const Consultation = () => {
             {/* Privacy Note */}
             <p className="text-sm text-text-light text-center pt-4">
               By submitting this form, you agree to our{' '}
-              <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+              <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>
               {' '}and{' '}
-              <a href="#" className="text-primary hover:underline">Terms & Conditions</a>
+              <a href="/terms" className="text-primary hover:underline">Terms & Conditions</a>
               .
             </p>
           </form>
