@@ -11,11 +11,11 @@ const TopBar = () => {
             <span className="hover:underline">info@ziebex.com</span>
           </a>
           <a 
-            href="tel:+442012345678"
+            href="tel:+447883585922"
             className="flex items-center gap-2 text-white/90 hover:text-white transition-all group"
           >
             <span className="text-base group-hover:scale-110 transition-transform">📞</span>
-            <span className="hover:underline">+44 (0) 20 1234 5678</span>
+            <span className="hover:underline">07883 585922</span>
           </a>
         </div>
         <div className="flex gap-3">

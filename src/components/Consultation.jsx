@@ -194,7 +194,7 @@ const Consultation = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:outline-none transition-all text-dark"
-                  placeholder="+44 (0) 20 1234 5678"
+                  placeholder="07883 585922"
                 />
               </div>
             </div>
@@ -304,7 +304,7 @@ const Consultation = () => {
               </svg>
             </div>
             <h3 className="font-semibold text-dark mb-2">Call Us</h3>
-            <p className="text-text-light">+44 (0) 20 1234 5678</p>
+            <p className="text-text-light">07883 585922</p>
           </div>
           <div className="p-6 bg-white rounded-2xl shadow-lg">
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
