@@ -99,7 +99,7 @@ const Consultation = () => {
   }
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-light via-white to-light">
+    <section className="py-24 bg-gradient-to-br from-light via-white to-light">
       <div className="max-w-4xl mx-auto px-5">
         {/* Header */}
         <div className="text-center mb-12">

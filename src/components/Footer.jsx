@@ -1,11 +1,14 @@
 import logo from '../assets/logo.png'
 
+import { Link } from 'react-router-dom'
+
 const Footer = () => {
   const footerLinks = {
     company: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Services', href: '#services' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'About Us', href: '/#about' },
+      { label: 'Services', href: '/#services' },
+      { label: 'Courses', href: '/courses' },
+      { label: 'Contact', href: '/consultation' },
     ],
     services: [
       { label: 'Professional Consulting', href: '#services' },
@@ -51,32 +54,42 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-5 text-lg">Company</h4>
             <ul className="list-none space-y-3">
-              {footerLinks.company.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-white/70 hover:text-accent transition-all inline-block hover:translate-x-1"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {footerLinks.company.map((link, index) => {
+                const isHashLink = link.href.includes('#')
+                const Component = isHashLink ? 'a' : Link
+                const props = isHashLink ? { href: link.href } : { to: link.href }
+                return (
+                  <li key={index}>
+                    <Component
+                      {...props}
+                      className="text-white/70 hover:text-accent transition-all inline-block hover:translate-x-1"
+                    >
+                      {link.label}
+                    </Component>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           
           <div>
             <h4 className="text-white font-bold mb-5 text-lg">Services</h4>
             <ul className="list-none space-y-3">
-              {footerLinks.services.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-white/70 hover:text-accent transition-all inline-block hover:translate-x-1"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {footerLinks.services.map((link, index) => {
+                const isHashLink = link.href.includes('#')
+                const Component = isHashLink ? 'a' : Link
+                const props = isHashLink ? { href: link.href } : { to: link.href }
+                return (
+                  <li key={index}>
+                    <Component
+                      {...props}
+                      className="text-white/70 hover:text-accent transition-all inline-block hover:translate-x-1"
+                    >
+                      {link.label}
+                    </Component>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           

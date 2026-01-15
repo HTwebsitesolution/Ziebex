@@ -12,7 +12,7 @@ const CTA = () => {
             Get a free consultation today and discover how our expert consultancy can help you achieve your goals and take your organization to the next level.
           </p>
           <a
-            href="#contact"
+            href="/consultation"
             className="inline-block bg-white text-primary px-10 py-4 rounded-full font-bold transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl"
           >
             Get Free Consultation

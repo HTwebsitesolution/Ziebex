@@ -162,7 +162,7 @@ const Hero = () => {
                 </p>
                 <div className="flex flex-wrap gap-4 pt-2">
                   <a
-                    href="#contact"
+                    href="/consultation"
                     className="bg-gradient-to-br from-accent to-yellow-400 text-dark px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-sm md:text-base transition-all hover:-translate-y-1 shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50"
                   >
                     {slide.ctaPrimary}

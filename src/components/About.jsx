@@ -46,7 +46,7 @@ const About = () => {
             </ul>
             
             <a
-              href="#contact"
+              href="/consultation"
               className="inline-block bg-gradient-to-br from-accent to-yellow-400 text-dark px-10 py-4 rounded-full font-bold transition-all hover:-translate-y-1 shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50"
             >
               Partner With Us
