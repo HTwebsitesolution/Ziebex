@@ -11,14 +11,14 @@ const Features = () => {
       description: 'Strategic project planning and execution to ensure your initiatives deliver results on time and within budget.',
     },
     {
-      icon: '🏢',
-      title: 'Estate Management',
-      description: 'Expert guidance in property management and real estate business operations for sustainable growth.',
+      icon: '📜',
+      title: 'Courses & Certifications',
+      description: 'Online and in-person programs designed to advance careers in healthcare and wellness.',
     },
     {
-      icon: '💰',
-      title: 'Financial Services',
-      description: 'Comprehensive financial consultancy to optimize resources and achieve your organizational objectives.',
+      icon: '🎓',
+      title: 'Professional Training',
+      description: 'Accredited, hands-on learning experiences led by subject matter experts.',
     },
     {
       icon: '🎓',

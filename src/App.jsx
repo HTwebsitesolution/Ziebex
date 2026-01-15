@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react'
 import TopBar from './components/TopBar'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import ImageGallery from './components/ImageGallery'
 import Features from './components/Features'
 import About from './components/About'
 import Process from './components/Process'
 import CTA from './components/CTA'
+import Consultation from './components/Consultation'
 import Footer from './components/Footer'
 
 function App() {
@@ -24,10 +26,12 @@ function App() {
       <TopBar />
       <Header scrolled={scrolled} />
       <Hero />
+      <ImageGallery />
       <Features />
       <About />
       <Process />
       <CTA />
+      <Consultation />
       <Footer />
     </div>
   )

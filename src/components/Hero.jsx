@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import slide1 from '../assets/slide1.png'
+import slide1Image from '../assets/slide1.png'
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -20,7 +20,7 @@ const Hero = () => {
       ctaPrimary: 'Get Free Consultation',
       ctaSecondary: 'Learn More',
       showStats: true,
-      backgroundImage: slide1,
+      // backgroundImage: slide1Image, // Temporarily disabled
     },
     {
       id: 2,
@@ -56,6 +56,18 @@ const Hero = () => {
       ctaSecondary: 'About Us',
       showStats: true,
       // backgroundImage: slide4, // Temporarily removed
+    },
+    {
+      id: 5,
+      tagline: 'Innovation & Excellence',
+      title: 'Driving Success Through',
+      highlight: 'Strategic Partnership',
+      subtitle: 'Your Trusted Consultancy Partner',
+      description: 'Experience the difference that expert guidance and innovative solutions can make. We combine industry expertise with cutting-edge strategies to deliver results that exceed expectations.',
+      ctaPrimary: 'Get Started Today',
+      ctaSecondary: 'Learn More',
+      showStats: false,
+      backgroundImage: slide1Image, // Using imported image from assets
     },
   ]
 
@@ -94,19 +106,28 @@ const Hero = () => {
             {/* Background Image for slide 1, gradient for others */}
             {slide.backgroundImage ? (
               <>
-                {/* Background Image - full opacity */}
-                <div 
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `url(${slide.backgroundImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
+                {/* Background Image using img element - full opacity */}
+                <img 
+                  src={slide.backgroundImage}
+                  alt="Background"
+                  className="absolute inset-0 w-full h-full object-cover z-0"
+                  style={{ opacity: 1 }}
+                  onLoad={() => {
+                    console.log('✅ Image loaded successfully:', slide.backgroundImage);
+                  }}
+                  onError={(e) => {
+                    console.error('❌ Image failed to load:', slide.backgroundImage);
+                    console.error('Trying alternative path...');
+                    // Try alternative path
+                    const altPath = slide.backgroundImage.startsWith('/') 
+                      ? slide.backgroundImage.substring(1) 
+                      : '/' + slide.backgroundImage;
+                    console.log('Alternative path would be:', altPath);
                   }}
                 />
-                {/* Dark Overlay for Text Readability */}
-                <div className="absolute inset-0 bg-gradient-to-br from-dark/70 via-dark/60 to-dark-light/70"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-dark/40 via-transparent to-dark/30"></div>
+                {/* Dark Overlay for Text Readability - z-index 1 - Reduced opacity to test */}
+                <div className="absolute inset-0 z-[1] bg-gradient-to-br from-dark/40 via-dark/30 to-dark-light/40"></div>
+                <div className="absolute inset-0 z-[1] bg-gradient-to-r from-dark/20 via-transparent to-dark/10"></div>
               </>
             ) : (
               <>

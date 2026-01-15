@@ -8,7 +8,6 @@ const Header = ({ scrolled }) => {
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About Us' },
     { href: '#services', label: 'Services' },
-    { href: '#team', label: 'Team' },
     { href: '#contact', label: 'Contact' },
   ]
 

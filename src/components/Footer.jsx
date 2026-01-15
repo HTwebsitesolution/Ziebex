@@ -5,14 +5,15 @@ const Footer = () => {
     company: [
       { label: 'About Us', href: '#about' },
       { label: 'Services', href: '#services' },
-      { label: 'Team', href: '#team' },
       { label: 'Contact', href: '#contact' },
     ],
     services: [
       { label: 'Professional Consulting', href: '#services' },
       { label: 'Project Management', href: '#services' },
-      { label: 'Estate Management', href: '#services' },
-      { label: 'Financial Services', href: '#services' },
+      { label: 'Courses & Certifications', href: '#services' },
+      { label: 'Professional Training', href: '#services' },
+      { label: 'Education Consulting', href: '#services' },
+      { label: 'Web Solutions', href: '#services' },
     ],
     legal: [
       { label: 'Privacy Policy', href: '#' },
