@@ -1,15 +1,29 @@
-import { useState } from 'react'
-import { courses as courseData, categories as categoryData } from '../data/courses'
+import { useEffect } from 'react'
 
 const Courses = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  // ProTrainings affiliate configuration
+  const AFFILIATE_ID = '63243'
+  const COURSE_COLLECTION_ID = '48'
+  const DISCOUNT_CODE = 'UK-LJWUOV'
 
-  const categories = categoryData
-  const courses = courseData
+  useEffect(() => {
+    // Load ProTrainings widget script
+    const loadWidgetScript = () => {
+      // Check if script is already loaded
+      if (document.querySelector('script[src*="widgets.js"]')) {
+        return
+      }
 
-  const filteredCourses = selectedCategory === 'all' 
-    ? courses 
-    : courses.filter(course => course.category === selectedCategory)
+      const script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.async = true
+      script.src = 'https://procourses.co.uk/javascripts/widgets.js?v=20230502'
+      const firstScript = document.getElementsByTagName('script')[0]
+      firstScript.parentNode.insertBefore(script, firstScript)
+    }
+
+    loadWidgetScript()
+  }, [])
 
   return (
     <section id="courses" className="py-24 bg-white">
@@ -22,93 +36,41 @@ const Courses = () => {
           <h2 className="font-poppins text-4xl md:text-5xl font-extrabold text-dark mb-5">
             Accredited Training Programs
           </h2>
-          <p className="text-lg text-text-light max-w-3xl mx-auto">
+          <p className="text-lg text-text-light max-w-3xl mx-auto mb-6">
             Browse our comprehensive range of accredited training courses. All courses are delivered by certified instructors and meet industry standards.
           </p>
-        </div>
-
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                selectedCategory === category.id
-                  ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg'
-                  : 'bg-light text-dark hover:bg-primary/10 hover:text-primary'
-              }`}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
-
-        {/* Courses Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredCourses.map((course) => (
-            <div
-              key={course.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2"
-            >
-              {/* Course Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                {course.featured && (
-                  <div className="absolute top-4 right-4 bg-accent text-dark px-3 py-1 rounded-full text-xs font-bold">
-                    Featured
-                  </div>
-                )}
-                <div className="absolute bottom-4 left-4 flex gap-2">
-                  <span className="bg-white/90 text-dark px-3 py-1 rounded-full text-xs font-semibold">
-                    {course.level}
-                  </span>
-                  <span className="bg-white/90 text-dark px-3 py-1 rounded-full text-xs font-semibold">
-                    {course.duration}
-                  </span>
-                </div>
-              </div>
-
-              {/* Course Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-dark mb-3 group-hover:text-primary transition-colors">
-                  {course.title}
-                </h3>
-                <p className="text-text-light mb-4 leading-relaxed">
-                  {course.description}
-                </p>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-2xl font-extrabold text-primary">
-                    {course.price}
-                  </span>
-                  <a
-                    href={course.affiliateLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-br from-primary to-secondary text-white px-6 py-2 rounded-full font-semibold transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                  >
-                    Enroll Now
-                  </a>
-                </div>
+          
+          {/* Discount Code Banner */}
+          <div className="inline-block bg-gradient-to-br from-accent to-yellow-400 rounded-full px-8 py-4 shadow-lg">
+            <div className="flex items-center gap-3">
+              <svg className="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div className="text-left">
+                <div className="text-xs font-semibold text-dark/80 uppercase tracking-wider">Special Offer</div>
+                <div className="text-xl font-extrabold text-dark">Use Code: <span className="font-black">{DISCOUNT_CODE}</span></div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* View All Courses Link */}
-        <div className="text-center mt-12">
-          <a
-            href="https://protrainings.uk/courses"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-gradient-to-br from-accent to-yellow-400 text-dark px-10 py-4 rounded-full font-bold transition-all hover:-translate-y-1 shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50"
-          >
-            View All Courses on ProTrainings
-          </a>
+        {/* ProTrainings Course Collection Widget */}
+        <div className="mb-12">
+          <div 
+            className="pt-online-courses" 
+            data-affiliate-id={AFFILIATE_ID} 
+            data-course-collection={COURSE_COLLECTION_ID}
+          ></div>
+        </div>
+
+        {/* Additional Video Widget (if needed) */}
+        <div className="text-center">
+          <div 
+            className="pt-video mx-auto" 
+            data-width="465" 
+            data-affiliate-id={AFFILIATE_ID} 
+            data-course-id="303"
+          ></div>
         </div>
       </div>
     </section>
