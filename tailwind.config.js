@@ -26,6 +26,8 @@ export default {
         'fade-in-right': 'fadeInRight 1s ease 0.3s both',
         'float': 'float 6s ease-in-out infinite',
         'pulse-gradient': 'pulseGradient 8s ease-in-out infinite',
+        'spin-slow': 'spin 3s linear infinite',
+        'shimmer': 'shimmer 3s linear infinite',
       },
       keyframes: {
         fadeInUp: {

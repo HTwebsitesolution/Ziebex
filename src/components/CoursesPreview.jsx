@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import ScrollReveal from './ScrollReveal'
 
 const CoursesPreview = () => {
   // Featured courses to showcase on homepage
@@ -33,31 +34,32 @@ const CoursesPreview = () => {
     <section id="courses" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-5">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="text-primary font-semibold text-base uppercase tracking-wider mb-4">
-            Training Courses
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <div className="text-primary font-semibold text-base uppercase tracking-wider mb-4">
+              Training Courses
+            </div>
+            <h2 className="font-poppins text-4xl md:text-5xl font-extrabold text-dark mb-5">
+              Accredited Training Programs
+            </h2>
+            <p className="text-lg text-text-light max-w-3xl mx-auto mb-6">
+              Explore our comprehensive range of accredited training courses. All courses are delivered by certified instructors and meet industry standards.
+            </p>
           </div>
-          <h2 className="font-poppins text-4xl md:text-5xl font-extrabold text-dark mb-5">
-            Accredited Training Programs
-          </h2>
-          <p className="text-lg text-text-light max-w-3xl mx-auto mb-6">
-            Explore our comprehensive range of accredited training courses. All courses are delivered by certified instructors and meet industry standards.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Featured Courses Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {featuredCourses.map((course) => (
-            <div
-              key={course.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2"
-            >
+            <ScrollReveal key={course.id} delay={course.id * 0.1} direction="up">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group hover:-translate-y-3 cursor-pointer">
               {/* Course Image */}
               <div className="relative h-48 overflow-hidden bg-gray-100">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                 <img
                   src={course.image}
                   alt={course.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                   onError={(e) => {
                     e.target.src = 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&auto=format'
                   }}
@@ -88,6 +90,7 @@ const CoursesPreview = () => {
                 </Link>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
 
