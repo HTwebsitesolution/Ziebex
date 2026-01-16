@@ -44,7 +44,7 @@ const Header = ({ scrolled }) => {
           <img 
             src={logo} 
             alt="Ziebex Logo" 
-            className="h-12 w-auto object-contain"
+            className="h-16 w-auto object-contain"
           />
         </Link>
         

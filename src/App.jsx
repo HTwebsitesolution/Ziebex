@@ -5,6 +5,7 @@ import ConsultationPage from './pages/ConsultationPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsPage from './pages/TermsPage'
 import CookiePolicyPage from './pages/CookiePolicyPage'
+import BackToTop from './components/BackToTop'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/cookie-policy" element={<CookiePolicyPage />} />
       </Routes>
+      <BackToTop />
     </Router>
   )
 }
