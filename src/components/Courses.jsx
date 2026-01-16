@@ -16,6 +16,10 @@ const Courses = () => {
   ]
 
   // All courses with affiliate links
+  // Format: https://www.protrainings.uk/courses?a=63243 (main courses page)
+  // Or specific course: https://www.protrainings.uk/courses/[course-slug]?a=63243
+  const MAIN_COURSES_LINK = `https://www.protrainings.uk/courses?a=${AFFILIATE_ID}`
+  
   const allCourses = [
     {
       id: 1,
@@ -26,7 +30,7 @@ const Courses = () => {
       level: 'Level 3',
       price: 'From £150',
       image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&auto=format',
-      affiliateLink: `https://protrainings.uk/courses/first-aid-at-work?ref=${AFFILIATE_ID}`,
+      affiliateLink: MAIN_COURSES_LINK,
       featured: true,
     },
     {
@@ -38,7 +42,7 @@ const Courses = () => {
       level: 'Level 3',
       price: 'From £95',
       image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop&auto=format',
-      affiliateLink: `https://protrainings.uk/courses/emergency-first-aid-at-work?ref=${AFFILIATE_ID}`,
+      affiliateLink: MAIN_COURSES_LINK,
       featured: false,
     },
     {
@@ -50,7 +54,7 @@ const Courses = () => {
       level: 'Level 3',
       price: 'From £120',
       image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop',
-      affiliateLink: `https://protrainings.uk/courses/paediatric-first-aid?ref=${AFFILIATE_ID}`,
+      affiliateLink: `https://www.protrainings.uk/courses/11-paediatric-12-hour-first-aid-level-3-vtq-online-blended-part-1?a=${AFFILIATE_ID}`,
       featured: false,
     },
     {
@@ -62,7 +66,7 @@ const Courses = () => {
       level: 'Level 2',
       price: 'From £75',
       image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop',
-      affiliateLink: `https://protrainings.uk/courses/health-safety-workplace?ref=${AFFILIATE_ID}`,
+      affiliateLink: MAIN_COURSES_LINK,
       featured: true,
     },
     {
@@ -74,7 +78,7 @@ const Courses = () => {
       level: 'Level 2',
       price: 'From £65',
       image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=300&fit=crop',
-      affiliateLink: `https://protrainings.uk/courses/food-safety?ref=${AFFILIATE_ID}`,
+      affiliateLink: MAIN_COURSES_LINK,
       featured: true,
     },
     {
@@ -86,7 +90,7 @@ const Courses = () => {
       level: 'Level 3',
       price: 'From £200',
       image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop',
-      affiliateLink: `https://protrainings.uk/courses/mental-health-first-aid?ref=${AFFILIATE_ID}`,
+      affiliateLink: MAIN_COURSES_LINK,
       featured: false,
     },
     {
@@ -98,7 +102,7 @@ const Courses = () => {
       level: 'Level 2',
       price: 'From £80',
       image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop',
-      affiliateLink: `https://protrainings.uk/courses/safeguarding-children?ref=${AFFILIATE_ID}`,
+      affiliateLink: MAIN_COURSES_LINK,
       featured: false,
     },
     {
@@ -110,7 +114,7 @@ const Courses = () => {
       level: 'Level 1',
       price: 'From £45',
       image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop',
-      affiliateLink: `https://protrainings.uk/courses/fire-safety-awareness?ref=${AFFILIATE_ID}`,
+      affiliateLink: MAIN_COURSES_LINK,
       featured: false,
     },
     {
@@ -122,8 +126,20 @@ const Courses = () => {
       level: 'Level 2',
       price: 'From £55',
       image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop',
-      affiliateLink: `https://protrainings.uk/courses/manual-handling?ref=${AFFILIATE_ID}`,
+      affiliateLink: MAIN_COURSES_LINK,
       featured: false,
+    },
+    {
+      id: 10,
+      title: 'Appointed Persons in the Workplace',
+      category: 'first-aid',
+      description: 'All workplaces require an appointed first aider. Become your workplace\'s appointed First Aider and save your colleagues lives.',
+      duration: '2.5 Hours',
+      level: 'Level 2',
+      price: 'From £24.95',
+      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&auto=format',
+      affiliateLink: `https://www.protrainings.uk/courses/9-appointed-persons-in-the-workplace-level-2-vtq?a=${AFFILIATE_ID}`,
+      featured: true,
     },
   ]
 
@@ -240,7 +256,7 @@ const Courses = () => {
         {/* View All Courses on ProTrainings Link */}
         <div className="text-center">
           <a
-            href={`https://protrainings.uk/courses?ref=${AFFILIATE_ID}`}
+            href={`https://www.protrainings.uk/courses?a=${AFFILIATE_ID}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-gradient-to-br from-accent to-yellow-400 text-dark px-10 py-4 rounded-full font-bold transition-all hover:-translate-y-1 shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50"
