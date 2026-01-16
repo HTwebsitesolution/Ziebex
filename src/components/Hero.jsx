@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import slide1Image from '../assets/slide1.png'
+import Particles from './Particles'
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -94,8 +95,24 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-[85vh] md:min-h-[80vh] bg-gradient-to-br from-dark to-dark-light overflow-hidden pt-16 md:pt-20 pb-12">
+      {/* Particles Background - Consistent across all slides */}
+      <div className="absolute inset-0 z-[2] opacity-50">
+        <Particles
+          particleColors={['#ffffff', '#fbbf24', '#3b82f6', '#0ea5e9']}
+          particleCount={220}
+          particleSpread={12}
+          speed={0.12}
+          particleBaseSize={90}
+          moveParticlesOnHover={true}
+          alphaParticles={true}
+          disableRotation={false}
+          sizeRandomness={0.6}
+          particleHoverFactor={1.5}
+        />
+      </div>
+      
       {/* Slider Container */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full z-10">
         {slides.map((slide, index) => (
           <div
             key={slide.id}

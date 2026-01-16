@@ -48,7 +48,7 @@ const Header = ({ scrolled }) => {
           />
         </Link>
         
-        <ul className="hidden md:flex list-none gap-8 items-center">
+        <ul className="hidden md:flex list-none gap-3 items-center">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.href || (location.pathname === '/' && activeSection === link.section)
             const isHashLink = link.href.includes('#')
@@ -58,18 +58,15 @@ const Header = ({ scrolled }) => {
               <li key={link.href}>
                 <Component
                   {...props}
-                  className={`font-semibold text-base transition-all relative group py-2 px-1 ${
+                  className={`font-semibold text-sm transition-all duration-300 relative group px-5 py-2.5 rounded-full ${
                     isActive 
-                      ? 'text-primary underline decoration-2 underline-offset-4' 
-                      : 'text-dark hover:text-primary'
+                      ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/40 hover:shadow-xl hover:shadow-primary/50 scale-105' 
+                      : 'bg-white text-dark border-2 border-gray-200 hover:border-primary/50 hover:bg-gradient-to-br hover:from-primary/5 hover:to-secondary/5 hover:text-primary shadow-sm hover:shadow-md hover:-translate-y-0.5'
                   }`}
                 >
                   <span className="relative z-10">{link.label}</span>
                   {!isActive && (
-                    <>
-                      <span className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full rounded-full"></span>
-                      <span className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-0"></span>
-                    </>
+                    <span className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-0"></span>
                   )}
                 </Component>
               </li>
@@ -79,25 +76,25 @@ const Header = ({ scrolled }) => {
         
         <Link
           to="/consultation"
-          className="hidden md:block bg-gradient-to-br from-primary to-secondary text-white px-8 py-3 rounded-full font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105"
+          className="hidden md:block bg-gradient-to-br from-accent to-yellow-400 text-dark px-8 py-3 rounded-full font-bold transition-all hover:-translate-y-1 hover:scale-105 shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50"
         >
           Get Started
         </Link>
         
         <button
-          className="md:hidden flex flex-col gap-1.5 cursor-pointer"
+          className="md:hidden flex flex-col gap-1.5 cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-all"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`w-6 h-0.5 bg-dark transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-dark transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-dark transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-dark transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-dark transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-dark transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
         </button>
       </nav>
       
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t shadow-lg">
-          <ul className="flex flex-col p-5 gap-2">
+        <div className="md:hidden bg-white border-t shadow-xl">
+          <ul className="flex flex-col p-5 gap-3">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href || (location.pathname === '/' && activeSection === link.section)
               const isHashLink = link.href.includes('#')
@@ -107,10 +104,10 @@ const Header = ({ scrolled }) => {
                 <li key={link.href}>
                   <Component
                     {...props}
-                    className={`font-semibold block py-3 px-4 rounded-lg transition-all ${
+                    className={`font-semibold block py-3.5 px-5 rounded-full transition-all duration-300 text-center ${
                       isActive
-                        ? 'text-primary bg-primary/10 underline decoration-2'
-                        : 'text-dark hover:bg-primary/10 hover:text-primary'
+                        ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/40'
+                        : 'text-dark bg-gray-50 border-2 border-gray-200 hover:bg-gradient-to-br hover:from-primary/10 hover:to-secondary/10 hover:border-primary/50 hover:text-primary hover:shadow-md'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -122,7 +119,7 @@ const Header = ({ scrolled }) => {
             <li className="pt-2">
               <Link
                 to="/consultation"
-                className="block bg-gradient-to-br from-primary to-secondary text-white px-8 py-3 rounded-full font-semibold text-center shadow-lg hover:shadow-xl transition-all"
+                className="block bg-gradient-to-br from-accent to-yellow-400 text-dark px-8 py-4 rounded-full font-bold text-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Get Started
