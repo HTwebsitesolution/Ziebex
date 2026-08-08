@@ -33,6 +33,7 @@ const Header = ({ scrolled }) => {
     { href: '/', label: 'Home', section: 'home' },
     { href: '/#about', label: 'About Us', section: 'about' },
     { href: '/#services', label: 'Services', section: 'services' },
+    { href: '/safety-risk-operational-resilience', label: 'Safety, Risk & Resilience', section: 'safety' },
     { href: '/courses', label: 'Courses', section: 'courses' },
     { href: '/consultation', label: 'Contact', section: 'contact' },
   ]
@@ -58,7 +59,7 @@ const Header = ({ scrolled }) => {
               <li key={link.href}>
                 <Component
                   {...props}
-                  className={`font-semibold text-sm transition-all duration-300 relative group px-5 py-2.5 rounded-full ${
+                  className={`font-semibold text-sm transition-all duration-300 relative group px-4 py-2.5 rounded-full ${
                     isActive 
                       ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/40 hover:shadow-xl hover:shadow-primary/50 scale-105' 
                       : 'bg-white text-dark border-2 border-gray-200 hover:border-primary/50 hover:bg-gradient-to-br hover:from-primary/5 hover:to-secondary/5 hover:text-primary shadow-sm hover:shadow-md hover:-translate-y-0.5'

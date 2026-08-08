@@ -7,6 +7,7 @@ const Footer = () => {
     company: [
       { label: 'About Us', href: '/#about' },
       { label: 'Services', href: '/#services' },
+      { label: 'Safety, Risk & Resilience', href: '/safety-risk-operational-resilience' },
       { label: 'Courses', href: '/courses' },
       { label: 'Contact', href: '/consultation' },
     ],
@@ -17,6 +18,7 @@ const Footer = () => {
       { label: 'Professional Training', href: '#services' },
       { label: 'Education Consulting', href: '#services' },
       { label: 'Web Solutions', href: '#services' },
+      { label: 'Safety, Risk & Operational Resilience', href: '/safety-risk-operational-resilience' },
     ],
     legal: [
       { label: 'Privacy Policy', href: '/privacy-policy' },
