@@ -49,7 +49,7 @@ const Header = ({ scrolled }) => {
           />
         </Link>
         
-        <ul className="hidden md:flex list-none gap-3 items-center">
+        <ul className="hidden lg:flex list-none gap-2 items-center">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.href || (location.pathname === '/' && activeSection === link.section)
             const isHashLink = link.href.includes('#')
@@ -77,13 +77,13 @@ const Header = ({ scrolled }) => {
         
         <Link
           to="/consultation"
-          className="hidden md:block bg-gradient-to-br from-accent to-yellow-400 text-dark px-8 py-3 rounded-full font-bold transition-all hover:-translate-y-1 hover:scale-105 shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50"
+          className="hidden lg:block whitespace-nowrap bg-gradient-to-br from-accent to-yellow-400 text-dark px-8 py-3 rounded-full font-bold transition-all hover:-translate-y-1 hover:scale-105 shadow-lg shadow-accent/40 hover:shadow-xl hover:shadow-accent/50"
         >
           Get Started
         </Link>
         
         <button
-          className="md:hidden flex flex-col gap-1.5 cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-all"
+          className="lg:hidden flex flex-col gap-1.5 cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-all"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -94,7 +94,7 @@ const Header = ({ scrolled }) => {
       </nav>
       
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t shadow-xl">
+        <div className="lg:hidden bg-white border-t shadow-xl">
           <ul className="flex flex-col p-5 gap-3">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href || (location.pathname === '/' && activeSection === link.section)

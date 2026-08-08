@@ -41,8 +41,11 @@ const Simulation = () => {
               Test the System Before the Emergency
             </h2>
             <p className="text-lg text-text-light leading-relaxed">
-              Scenario-based exercises help organisations test how people, procedures, technology
-              and leadership perform under pressure — revealing gaps before a real emergency does.
+              Ziebex uses scenario-based exercises and simulations to test how people, procedures,
+              information, technology and leadership interact under operational pressure.
+            </p>
+            <p className="text-lg text-text-light leading-relaxed mt-4">
+              Simulation can test:
             </p>
           </div>
         </ScrollReveal>
