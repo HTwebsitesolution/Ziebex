@@ -21,6 +21,7 @@ const Consultation = () => {
     'Professional Training',
     'Education Consulting',
     'Web Solutions',
+    'Safety, Risk & Operational Resilience',
   ]
 
   const handleChange = (e) => {
